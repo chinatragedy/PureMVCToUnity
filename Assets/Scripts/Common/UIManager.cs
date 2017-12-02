@@ -16,35 +16,21 @@ public class UIManager
 
     public UIBase ShowView(string name)
     {
+<<<<<<< HEAD
+        UIBase page = Resources.Load(name, typeof(UIBase)) as UIBase;
+
+=======
         //UIBase page = Resources.Load(name, typeof(UIBase)) as UIBase;
-        UIBase page = null;
-        if(pageDic.TryGetValue(name, out page))
-        {
-            page.gameObject.SetActive(true);
-            return page;
-        }
         GameObject prefab = Resources.Load(name, typeof(GameObject)) as GameObject;
         GameObject obj = Object.Instantiate(prefab);
         obj.name = name;
-        page = obj.GetComponent<UIBase>();
+        UIBase page = obj.GetComponent<UIBase>();
         GameObject parentObj = GameObject.Find("UI Root");
         if(null != parentObj)
         {
             obj.transform.SetParent(parentObj.transform, false);
         }
-
-        pageDic[name] = page;
-        return page;
-    }
-
-    public UIBase HideView(string name)
-    {
-        UIBase page = null;
-        if (pageDic.TryGetValue(name, out page))
-        {
-            page.gameObject.SetActive(false);
-        }
-
+>>>>>>> parent of 12681cf... Add Bomb
         return page;
     }
 }

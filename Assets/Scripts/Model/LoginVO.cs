@@ -1,20 +1,27 @@
-using cn.bmob.io;
 using System;
 
-public class LoginVO : BmobUser
-{
-    public override void write(BmobOutput output, bool all)
-    {
-        base.write(output, all);
-    }
+public class LoginVO {
 
-    public override void readFields(BmobInput input)
+    private string name = "";
+    /// <summary>
+    /// ”√ªß√˚
+    /// </summary>
+    public string Name{ get; private set; }
+
+    private string pwd;
+    /// <summary>
+    /// √‹¬Î
+    /// </summary>
+    public string Pwd { get; private set; }
+
+    public LoginVO(string name, string pwd) 
     {
-        base.readFields(input);
-    }
+		this.Name = name;
+		this.Pwd = pwd;
+	}
 
     public override string ToString()
     {
-		return "LoginVO [name=" + this.username + ", pass=" + this.password + "]";
+		return "LoginVO [name=" + name + ", pass=" + pwd + "]";
 	}
 }

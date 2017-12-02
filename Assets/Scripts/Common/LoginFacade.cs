@@ -8,11 +8,8 @@ public class LoginFacade : Facade
 {
 	public const string STARTUP = "startup";
 	public const string SUBMIT_LOGIN = "submitLogin";
-    public const string SUBMIT_SIGNUP = "submitSignup";
 	public const string LOGIN_SUCCESSFUL = "loginSuccessful";
 	public const string LOGIN_FAIL = "loginFail";
-    public const string SIGNUP_SUCCESSFUL = "signupSuccessful";
-    public const string SIGNUP_FAIL = "signupFail";
 
     public new static IFacade Instance
 	{
@@ -30,12 +27,12 @@ public class LoginFacade : Facade
 		}
 	}
 
+
     protected override void InitializeController()
     {
 		base.InitializeController();
         RegisterCommand(STARTUP, typeof(StartupCommand));
         RegisterCommand(SUBMIT_LOGIN, typeof(LoginCommand));
-        RegisterCommand(SUBMIT_SIGNUP, typeof(SignupCommand));
 	}
 
 	protected override void InitializeModel() 
@@ -48,7 +45,7 @@ public class LoginFacade : Facade
     {
 		base.InitializeView();
         UIBase page = UIManager.Instance.ShowView("LoginPanel");
-        RegisterMediator(new LoginPanelMediator(page));
+        RegisterMediator(new LoginScreenMediator(page));
 	}
 
     public void Startup()

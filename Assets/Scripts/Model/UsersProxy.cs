@@ -27,9 +27,9 @@ public class UsersProxy : Proxy
     {
 		Debug.Log("userInfo = " + userInfo);
         Dictionary<string, string> localData = GetLocalData();
-		string userName = userInfo.username;
+		string userName = userInfo.Name;
 		if(null==userName||userName.Trim().Length==0) return false;
-		string pass = userInfo.password;
+		string pass = userInfo.Pwd;
 		if(null==pass||pass.Trim().Length==0) return false;
 		if(!localData.ContainsKey(userName)) return false;
 		if(!pass.Equals(localData[userName])) return false;
