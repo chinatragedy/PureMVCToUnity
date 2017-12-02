@@ -138,13 +138,13 @@ public class LoginScreen : UIBase
 
         if(null == name)
         {
-            name = transform.FindChild("LblName").GetComponent<UIInput>();
+            name = transform.Find("LblName").GetComponent<UIInput>();
             
         }
 
         if(null == pwd)
         {
-            pwd = transform.FindChild("LblPwd").GetComponent<UIInput>();
+            pwd = transform.Find("LblPwd").GetComponent<UIInput>();
         }
     }
 
